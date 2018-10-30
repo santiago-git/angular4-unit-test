@@ -1,0 +1,30 @@
+<ul class="list" *ngFor='let item of movies; let i = index'>
+    <ul class="list__item">
+        <li *ngFor='let key of item | keys'>
+            <div *ngIf="key == 'cover'">
+                <img [src]="item[key]">
+            </div>
+            <div *ngIf="key != 'cover'">
+                <strong class="key">{{ key }}: </strong>{{ item[key] }}
+            </div>
+        </li>
+    </ul>
+</ul>
+
+<form id="movie-form" [formGroup]="moviesForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="form-group">
+        <label class="center-block">Price:
+            <input class="form-control" formControlName="price">
+        </label>
+        <label class="center-block">Name:
+            <input class="form-control" formControlName="name">
+        </label>
+        <label class="center-block">Description:
+            <input class="form-control" formControlName="description">
+        </label>
+        <label class="center-block">Cover:
+            <input class="form-control" formControlName="cover">
+        </label>
+    </div>
+    <button type="submit" [disabled]="!moviesForm.valid" class="btn btn-success">Save</button>
+</form>

@@ -11,12 +11,16 @@ import { QuoteTextComponent } from './components/quote-text/quote-text.component
 import { UserComponent } from './components/user/user.component';
 
 import { UserService } from './components/user/user.service';
+import { MoviesComponent } from './components/movies/movies.component';
+import { MoviesService } from './components/movies/movies.service';
+import { KeysPipe } from '../pipes/keys';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'users', component: UserComponent },
+  { path: 'movies', component: MoviesComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 
@@ -27,7 +31,9 @@ const routes: Routes = [
     AboutComponent,
     ContactComponent,
     QuoteTextComponent,
-    UserComponent
+    UserComponent,
+    MoviesComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,
@@ -36,7 +42,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [
-    UserService
+    UserService,
+    MoviesService
   ],
   bootstrap: [AppComponent]
 })

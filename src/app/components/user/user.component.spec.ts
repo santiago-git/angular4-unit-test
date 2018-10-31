@@ -32,5 +32,6 @@ describe('ContactComponent', () => {
         fixture.detectChanges();
         const el = fixture.nativeElement.querySelector('li');
         expect(el).toBeDefined();
+        expect(el.textContent).toBeTruthy();
     }));
 });

@@ -4,15 +4,23 @@ import { BrowserModule, By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { MoviesComponent } from './movies.component';
+import { KeysPipe } from '../../../pipes/keys';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-describe('ContactComponent', () => {
+describe('MoviesComponent', () => {
     let comp: MoviesComponent;
     let fixture: ComponentFixture<MoviesComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [
-                MoviesComponent
+                MoviesComponent,
+                KeysPipe
+            ],
+            imports: [
+                BrowserModule,
+                FormsModule,
+                ReactiveFormsModule,
             ],
             providers: [
                 { provide: MoviesService, useClass: MoviesService }
@@ -24,6 +32,9 @@ describe('ContactComponent', () => {
     }));
 
     // debe tener al menos un video
+    it(`debe tener al menos un video`, async(() => {
+        expect(comp.movies.length).toBeGreaterThan(0);
+    }));
     // cada video debe tener los elementos que componen un video (price, name, destription)
     // Si los campos de "nuevo video" están vacíos el formulario debe ser inválido
     // Si los campos de "nuevo video" están llenos debe ser válido el formulario

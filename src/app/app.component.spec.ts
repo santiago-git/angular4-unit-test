@@ -6,6 +6,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
+import { MoviesComponent } from './components/movies/movies.component';
+import { KeysPipe } from '../pipes/keys';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('AppComponent', () => {
   const routes: Routes = [
@@ -19,9 +23,14 @@ describe('AppComponent', () => {
         AppComponent,
         HomeComponent,
         AboutComponent,
-        QuoteTextComponent
+        QuoteTextComponent,
+        MoviesComponent,
+        KeysPipe
       ],
       imports: [
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
         RouterModule.forRoot(routes)
       ],
       providers: [

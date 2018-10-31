@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
+import { MoviesComponent } from './components/movies/movies.component';
 
 describe('AppComponent', () => {
   const routes: Routes = [
@@ -19,7 +20,8 @@ describe('AppComponent', () => {
         AppComponent,
         HomeComponent,
         AboutComponent,
-        QuoteTextComponent
+        QuoteTextComponent,
+        MoviesComponent
       ],
       imports: [
         RouterModule.forRoot(routes)

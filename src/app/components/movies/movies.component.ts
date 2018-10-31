@@ -1,6 +1,7 @@
 import { MoviesService } from './movies.service';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Movie } from './movie';
 
 @Component({
   templateUrl: './movies.component.html',
@@ -8,7 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class MoviesComponent {
   text = 'user page';
-  movies;
+  movies: Movie[];
   moviesForm: FormGroup;
   movie = {
     price: '',
@@ -33,9 +34,11 @@ export class MoviesComponent {
       'description': new FormControl(this.movie.description, Validators.required),
       'cover': new FormControl(this.movie.cover, Validators.required)
     });
+
   }
 
   onSubmit(): void {
+    this.movies.push(this.moviesForm.value);
     this.submitted = true;
   }
 }
